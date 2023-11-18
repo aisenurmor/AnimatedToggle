@@ -40,17 +40,17 @@ public struct ToggleStateItem {
     let shadowColor: Color?
     
     public init(
-        backgroundColor: Color?,
-        shadowColor: Color?
+        backgroundColor: Color = .clear,
+        shadowColor: Color = .clear
     ) {
-        self.backgroundColor = backgroundColor ?? .cyan
-        self.shadowColor = shadowColor ?? .clear
+        self.backgroundColor = backgroundColor
+        self.shadowColor = shadowColor
     }
     
     public func editing(with item: ToggleStateItem) -> ToggleStateItem {
         return .init(
-            backgroundColor: item[\.backgroundColor, self],
-            shadowColor: item[\.shadowColor, self]
+            backgroundColor: item[\.backgroundColor, self] ?? .clear,
+            shadowColor: item[\.shadowColor, self] ?? .clear
         )
     }
     
